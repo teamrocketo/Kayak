@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float rowForce = 10f;
+    public float rowForce = 5f;
     public uint boatIndex = 0u;
+    public float forceDistance = 1f;
 
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
@@ -24,8 +25,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
-        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
     }
 
     void Update()
@@ -173,14 +172,15 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
-
-        rb.AddForce(rtForceDir * rowForce, ForceMode.Impulse);
+        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
+        rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 
     void OnLeftTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Left: Player " + playerIndex);
-        rb.AddForce(ltForceDir * rowForce, ForceMode.Impulse);
+        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
+        rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 }
