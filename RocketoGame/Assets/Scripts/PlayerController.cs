@@ -19,10 +19,14 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The minimum amount of pressure you have to set to the triggers to detect the key down (0->1)")]
     public float minTriggerRange = 0.5f;
     public float rowCooldown = 0.1f;
+    public float rowAnimDuration = 0.3f;
 
     //Particles
     [Header("Particles References")]
     public List<ParticleSystem> particleSystems;
+
+    public RowController rowControllerFront;
+    public RowController rowControllerBack;
 
     //To imitate the KeyDown behavior
     private bool rtDownPlayer1 = false;
@@ -218,19 +222,57 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator OnRowAnimFinished(uint playerIndex, bool right)
+    {
+        yield return new WaitForSeconds(rowAnimDuration);
+
+        if(right)
+        {
+            rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
+            rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
+
+            if (playerIndex % 2 != 0)
+            {
+                particleSystems[0].Play();
+            }
+            else
+            {
+                particleSystems[2].Play();
+            }
+        }
+        else
+        {
+            ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
+            rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
+
+            if (playerIndex % 2 != 0)
+            {
+                particleSystems[1].Play();
+            }
+            else
+            {
+                particleSystems[3].Play();
+            }
+        }
+        
+    }
+
     //Player index: {1, 2, 3, 4}
     void OnRightTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         //Debug.Log("Right: Player " + playerIndex);
 
-        rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
-        rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
-
         if (playerIndex % 2 != 0)
-            particleSystems[0].Play();
+        {
+            rowControllerFront.OnRow(true);
+        }
         else
-            particleSystems[2].Play();
+        {
+            rowControllerBack.OnRow(true);
+        }
+
+        StartCoroutine(OnRowAnimFinished(playerIndex, true));
     }
 
     void OnLeftTriggerPressed(uint playerIndex)
@@ -238,13 +280,15 @@ public class PlayerController : MonoBehaviour
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         //Debug.Log("Left: Player " + playerIndex);
 
-        ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
-        rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
-
-        if(playerIndex % 2 != 0)
-            particleSystems[1].Play();
+        if (playerIndex % 2 != 0)
+        {
+            rowControllerFront.OnRow(false);
+        }
         else
-            particleSystems[3].Play();
+        {
+            rowControllerBack.OnRow(false);
+        }
 
+        StartCoroutine(OnRowAnimFinished(playerIndex, false));
     }
 }
