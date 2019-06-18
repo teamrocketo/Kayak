@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float forceDistance = 1f;
     public float maxVelocity = 20f;
     public float minTriggerRange = 0.5f;
+    public float torqueAngle = 45f;
 
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
@@ -176,9 +177,7 @@ public class PlayerController : MonoBehaviour
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
 
-
-
-        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
+        rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 
@@ -186,7 +185,8 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Left: Player " + playerIndex);
-        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
+
+        ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 }
