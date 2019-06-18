@@ -55,16 +55,11 @@ public class CameraController : MonoBehaviour
 
 	private void Update()
 	{
-        timer += Time.deltaTime;
-        if(timer > 3.0f){
-            game_end = true;
-            return;
-        }
         // Victory / Lose conditions!
         Vector3 screenPoint = this.GetComponent<Camera>().WorldToViewportPoint(current_loser.position);
         if (screenPoint.z > 0 && screenPoint.x > 0.0f && screenPoint.x < 1.0f && screenPoint.y > 0.0f && screenPoint.y < 1.0f)
         {
-            //timer = 0.0f;
+            timer = 0.0f;
         }
         else
         {
@@ -72,7 +67,7 @@ public class CameraController : MonoBehaviour
             if (timer >= time_to_lose)
             {
                 // current_loser loses lul
-                //game_end = true;
+                game_end = true;
             }
         }
         
