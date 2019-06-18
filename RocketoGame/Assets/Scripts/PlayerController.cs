@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
 
-        rb.AddForce(rtForceDir * rowForce * Random.Range(0.0f,1.0f), ForceMode.Impulse);
+        rb.AddForce(rtForceDir * rowForce, ForceMode.Impulse);
     }
 
     void OnLeftTriggerPressed(uint playerIndex)
