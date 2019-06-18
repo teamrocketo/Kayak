@@ -83,10 +83,4 @@ public class CameraController : MonoBehaviour
 
 
 	}
-
-	private void OnDrawGizmos()
-	{
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(v_winner, 1);
-	}
 }
