@@ -64,14 +64,16 @@ public class PlayerController : MonoBehaviour
         if(boatIndex == 0)
         {
             #region PLAYER 1 CONTROLS            
-            if ((Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right")) && timeToTriggerP1 < Time.time)
+            if ((Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right")))
             {
-                if (!rtDownPlayer1 && !ltDownPlayer1)
+                if (timeToTriggerP1 < Time.time)
                 {
-                    OnRightTriggerPressed(1);
-                    timeToTriggerP1 = Time.time + rowCooldown;
+                    if (!rtDownPlayer1 && !ltDownPlayer1)
+                    {
+                        OnRightTriggerPressed(1);
+                        timeToTriggerP1 = Time.time + rowCooldown;
+                    }
                 }
-
                 rtDownPlayer1 = true;
             }
             else
@@ -79,13 +81,17 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if ((Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left")) && timeToTriggerP1 < Time.time)
+            if ((Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left")))
             {
-                if (!ltDownPlayer1 && !rtDownPlayer1)
+                if(timeToTriggerP1 < Time.time)
                 {
-                    OnLeftTriggerPressed(1);
-                    timeToTriggerP1 = Time.time + rowCooldown;
+                    if (!ltDownPlayer1 && !rtDownPlayer1)
+                    {
+                        OnLeftTriggerPressed(1);
+                        timeToTriggerP1 = Time.time + rowCooldown;
+                    }
                 }
+                
                 ltDownPlayer1 = true;
             }
             else
@@ -95,14 +101,17 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 2 CONTROLS            
-            if ((Input.GetAxis("RightTrigger2") > minTriggerRange) && timeToTriggerP2 < Time.time)
+            if ((Input.GetAxis("RightTrigger2") > minTriggerRange))
             {
-                if (!rtDownPlayer2 && !ltDownPlayer2)
+                if(timeToTriggerP2 < Time.time)
                 {
-                    OnRightTriggerPressed(2);
-                    timeToTriggerP2 = Time.time + rowCooldown;
+                    if (!rtDownPlayer2 && !ltDownPlayer2)
+                    {
+                        OnRightTriggerPressed(2);
+                        timeToTriggerP2 = Time.time + rowCooldown;
+                    }
                 }
-
+                
                 rtDownPlayer2 = true;
             }
             else
@@ -110,13 +119,17 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2= false;
             }
 
-            if ((Input.GetAxis("LeftTrigger2") > minTriggerRange) && timeToTriggerP2 < Time.time)
+            if ((Input.GetAxis("LeftTrigger2") > minTriggerRange))
             {
-                if (!ltDownPlayer2 && !rtDownPlayer2)
+                if(timeToTriggerP2 < Time.time)
                 {
-                    OnLeftTriggerPressed(2);
-                    timeToTriggerP2 = Time.time + rowCooldown;
+                    if (!ltDownPlayer2 && !rtDownPlayer2)
+                    {
+                        OnLeftTriggerPressed(2);
+                        timeToTriggerP2 = Time.time + rowCooldown;
+                    }
                 }
+                
                 ltDownPlayer2 = true;
             }
             else
@@ -128,14 +141,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             #region PLAYER 3 CONTROLS            
-            if ((Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up")) && timeToTriggerP1 < Time.time)
+            if ((Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up")))
             {
-                if (!rtDownPlayer1 && !ltDownPlayer1)
+                if(timeToTriggerP1 < Time.time)
                 {
-                    OnRightTriggerPressed(3);
-                    timeToTriggerP1 = Time.time + rowCooldown;
+                    if (!rtDownPlayer1 && !ltDownPlayer1)
+                    {
+                        OnRightTriggerPressed(3);
+                        timeToTriggerP1 = Time.time + rowCooldown;
+                    }
                 }
-
+                
                 rtDownPlayer1 = true;
             }
             else
@@ -143,13 +159,17 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if ((Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down")) && timeToTriggerP1 < Time.time)
+            if ((Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down")))
             {
-                if (!ltDownPlayer1 && !rtDownPlayer1)
+                if(timeToTriggerP1 < Time.time)
                 {
-                    OnLeftTriggerPressed(3);
-                    timeToTriggerP1 = Time.time + rowCooldown;
+                    if (!ltDownPlayer1 && !rtDownPlayer1)
+                    {
+                        OnLeftTriggerPressed(3);
+                        timeToTriggerP1 = Time.time + rowCooldown;
+                    }
                 }
+                
                 ltDownPlayer1 = true;
             }
             else
@@ -159,14 +179,17 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 4 CONTROLS            
-            if ((Input.GetAxis("RightTrigger4") > minTriggerRange) && timeToTriggerP2 < Time.time)
+            if ((Input.GetAxis("RightTrigger4") > minTriggerRange))
             {
-                if (!rtDownPlayer2 && !ltDownPlayer2)
+                if(timeToTriggerP2 < Time.time)
                 {
-                    OnRightTriggerPressed(4);
-                    timeToTriggerP2 = Time.time + rowCooldown;
+                    if (!rtDownPlayer2 && !ltDownPlayer2)
+                    {
+                        OnRightTriggerPressed(4);
+                        timeToTriggerP2 = Time.time + rowCooldown;
+                    }
                 }
-
+                
                 rtDownPlayer2 = true;
             }
             else
@@ -174,13 +197,17 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2 = false;
             }
 
-            if ((Input.GetAxis("LeftTrigger4") > minTriggerRange) && timeToTriggerP2 < Time.time)
+            if ((Input.GetAxis("LeftTrigger4") > minTriggerRange))
             {
-                if (!ltDownPlayer2 && !rtDownPlayer2)
+                if(timeToTriggerP2 < Time.time)
                 {
-                    OnLeftTriggerPressed(4);
-                    timeToTriggerP2 = Time.time + rowCooldown;
+                    if (!ltDownPlayer2 && !rtDownPlayer2)
+                    {
+                        OnLeftTriggerPressed(4);
+                        timeToTriggerP2 = Time.time + rowCooldown;
+                    }
                 }
+                
                 ltDownPlayer2 = true;
             }
             else
@@ -189,7 +216,6 @@ public class PlayerController : MonoBehaviour
             }
             #endregion
         }
-
     }
 
     //Player index: {1, 2, 3, 4}
@@ -200,7 +226,11 @@ public class PlayerController : MonoBehaviour
 
         rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
-        particleSystems[(int)(playerIndex - 1) * 2].Play();
+
+        if (playerIndex % 2 != 0)
+            particleSystems[0].Play();
+        else
+            particleSystems[2].Play();
     }
 
     void OnLeftTriggerPressed(uint playerIndex)
@@ -210,6 +240,11 @@ public class PlayerController : MonoBehaviour
 
         ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
-        particleSystems[(int)(playerIndex - 1) * 2 + 1].Play();
+
+        if(playerIndex % 2 != 0)
+            particleSystems[1].Play();
+        else
+            particleSystems[3].Play();
+
     }
 }
