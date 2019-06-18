@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if(boatIndex == 0)
         {
             #region PLAYER 1 CONTROLS            
-            if (Input.GetAxis("RightTrigger1") > minTriggerRange)
+            if (Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right"))
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger1") > minTriggerRange)
+            if (Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left"))
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
