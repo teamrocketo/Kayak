@@ -6,11 +6,16 @@
 		_DepthGradientDeep("Depth Gradient Deep", Color) = (0.086, 0.407, 1, 0.749)
 		_DepthMaxDistance("Depth Maximum Distance", Float) = 1
 		_SurfaceNoise("Surface Noise", 2D) = "white" {}
-	_SurfaceNoiseCutoff("Surface Noise Cutoff", Range(0, 1)) = 0.777
+		_SurfaceNoiseCutoff("Surface Noise Cutoff", Range(0, 1)) = 0.777
 		_FoamMaxDistance("Foam Maximum Distance", Float) = 0.4
 		_FoamMinDistance("Foam Minimum Distance", Float) = 0.04
 		_SurfaceNoiseScroll("Surface Noise Scroll Amount", Vector) = (0.03, 0.03, 0, 0)
 		_SurfaceDistortion("Surface Distortion", 2D) = "white" {}
+
+		_WaveSpeed("Wave Speed", Float) = 0.04
+		_WaveAmplitude("Wave Amplitude", Float) = 0.04
+		_WaveFrequency("Wave Frequency", Float) = 0.04
+
 	// Control to multiply the strength of the distortion.
 	_SurfaceDistortionAmount("Surface Distortion Amount", Range(0, 1)) = 0.27
 
@@ -52,13 +57,20 @@
 		float4 _SurfaceNoise_ST;
 		sampler2D _SurfaceDistortion;
 		float4 _SurfaceDistortion_ST;
+		float _WaveSpeed;
+		float _WaveAmplitude;
+		float _WaveFrequency;
 
 		float _SurfaceDistortionAmount;
 		v2f vert(appdata v)
 		{
 			v2f o;
 			o.noiseUV = TRANSFORM_TEX(v.uv, _SurfaceNoise);
-			o.vertex = UnityObjectToClipPos(v.vertex);
+			float4 tmpVertex = v.vertex;
+			tmpVertex.y = sin((_Time.y * _WaveSpeed) + (tmpVertex.x * tmpVertex.z * _WaveFrequency)) * _WaveAmplitude;
+
+			o.vertex = UnityObjectToClipPos(tmpVertex);
+			
 			o.screenPosition = ComputeScreenPos(o.vertex);
 			o.distortUV = TRANSFORM_TEX(v.uv, _SurfaceDistortion);
 			o.viewNormal = COMPUTE_VIEW_NORMAL;
