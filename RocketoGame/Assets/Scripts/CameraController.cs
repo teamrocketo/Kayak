@@ -26,6 +26,11 @@ public class CameraController : MonoBehaviour
     private float min_offser_multipler = 0.33f;
     private float max_offser_multipler = 0.5f;
 
+    public float time_to_lose = 3.0f;
+    private float timer = 0.0f;
+
+    private bool game_end = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,38 +53,71 @@ public class CameraController : MonoBehaviour
 
 	private void Update()
 	{
-        
 
-        // Calculate the 1/3 distance between the 1st and 2nd place
-        distance_between_players = Vector3.Distance(player1.position, player2.position);
-
-        if (max_distance_between_players < distance_between_players)
-            distance_between_players = max_distance_between_players;
-
-
-        offset_multipler = -0.0085f * distance_between_players + max_offser_multipler;
-
-        /*if (distance_between_players < 10.0f)
+        // Victory / Lose conditions!
+        Vector3 screenPoint = this.GetComponent<Camera>().WorldToViewportPoint(current_loser.position);
+        if (screenPoint.z > 0 && screenPoint.x > 0.0f && screenPoint.x < 1.0f && screenPoint.y > 0.0f && screenPoint.y < 1.0f)
         {
-            offset_multipler = 0.5f;
+            timer = 0.0f;
         }
-        else if (distance_between_players >= 10.0f)
-            offset_multipler = 0.33f;*/
+        else
+        {
+            timer += Time.deltaTime;
+            if (timer >= time_to_lose)
+            {
+                // current_loser loses lul
+                game_end = true;
+            }
+        }
+        
+        if(!game_end){
+            // Calculate the 1/3 distance between the 1st and 2nd place
+            distance_between_players = Vector3.Distance(player1.position, player2.position);
 
-        v_winner = current_loser.position - current_winner.position;
-        v_winner.Normalize();
-        v_winner = current_winner.position + (v_winner * (offset_multipler * distance_between_players));
+            if (max_distance_between_players < distance_between_players)
+                distance_between_players = max_distance_between_players;
 
-        float y_smooth_multiplier = 1.5f - offset_multipler;
 
-        // Move the camera
-        Vector3 lil_off = new Vector3(offset.x, offset.y * y_smooth_multiplier, offset.z * y_smooth_multiplier);
-        Vector3 desired_position = v_winner + lil_off;
-        Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
-        //Debug.Log(offset_multipler);
-        //smoothed_position.Set(smoothed_position.x, smoothed_position.y * y_smooth_multiplier, smoothed_position.z* y_smooth_multiplier);
+            offset_multipler = -0.0085f * distance_between_players + max_offser_multipler;
 
-        transform.position = smoothed_position;
+            /*if (distance_between_players < 10.0f)
+            {
+                offset_multipler = 0.5f;
+            }
+            else if (distance_between_players >= 10.0f)
+                offset_multipler = 0.33f;*/
+
+            v_winner = current_loser.position - current_winner.position;
+            v_winner.Normalize();
+            v_winner = current_winner.position + (v_winner * (offset_multipler * distance_between_players));
+
+            float y_smooth_multiplier = 1.5f - offset_multipler;
+
+            // Move the camera
+            Vector3 lil_off = new Vector3(offset.x, offset.y * y_smooth_multiplier, offset.z * y_smooth_multiplier);
+            Vector3 desired_position = v_winner + lil_off;
+            Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
+            //Debug.Log(offset_multipler);
+            //smoothed_position.Set(smoothed_position.x, smoothed_position.y * y_smooth_multiplier, smoothed_position.z* y_smooth_multiplier);
+
+            transform.position = smoothed_position;
+        }else{
+            // Move the camera
+
+            v_winner = current_loser.position - current_winner.position;
+            v_winner.Normalize();
+            v_winner = current_winner.position+ (v_winner * (offset_multipler * distance_between_players));;
+                                     
+            offset.Set(offset.x, 5.0f, 2.0f);
+            Vector3 lil_off = new Vector3(offset.x, offset.y, offset.z);
+            Vector3 desired_position = v_winner + lil_off;
+            Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
+            //Debug.Log(offset_multipler);
+            //smoothed_position.Set(smoothed_position.x, smoothed_position.y * y_smooth_multiplier, smoothed_position.z* y_smooth_multiplier);
+
+            transform.position = smoothed_position;
+        }
+
 
 
 	}
