@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public float minTriggerRange = 0.5f;
     public float rowCooldown = 0.1f;
 
+    //Particles
+    [Header("Particles References")]
+    public List<ParticleSystem> particleSystems;
+
     //To imitate the KeyDown behavior
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
@@ -196,6 +200,7 @@ public class PlayerController : MonoBehaviour
 
         rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
+        particleSystems[(int)(playerIndex - 1) * 2].Play();
     }
 
     void OnLeftTriggerPressed(uint playerIndex)
@@ -205,5 +210,6 @@ public class PlayerController : MonoBehaviour
 
         ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
+        particleSystems[(int)(playerIndex - 1) * 2 + 1].Play();
     }
 }
