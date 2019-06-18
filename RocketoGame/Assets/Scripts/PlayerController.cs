@@ -25,10 +25,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
-        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
-
-
     }
 
     void Update()
@@ -176,7 +172,7 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
-
+        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 
@@ -184,6 +180,7 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Left: Player " + playerIndex);
+        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 }
