@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public float rowForce = 5f;
     public uint boatIndex = 0u;
     public float forceDistance = 1f;
+    public float maxVelocity = 20f;
+    public float minTriggerRange = 0.5f;
+    public float torqueAngle = 45f;
 
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
@@ -19,8 +22,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 rtForceDir;
     private Vector3 ltForceDir;
 
-    //TODO: MAX VELOCITY
     //TODO: ROW COOLDOWN
+
+    private bool rightPressed1 = false;
+    private bool rightPressed2 = false;
+    private bool leftPressed1 = false;
+    private bool leftPressed2 = false;
 
     void Start()
     {
@@ -29,9 +36,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        InputManagement();
 
-        Movement();
+
+        if (rb.velocity.magnitude > maxVelocity)
+        {
+            rb.velocity = rb.velocity.normalized * maxVelocity;
+        }
+
+        InputManagement();
     }
 
     void InputManagement()
@@ -39,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if(boatIndex == 0)
         {
             #region PLAYER 1 CONTROLS            
-            if (Input.GetAxis("RightTrigger1") > 0)
+            if (Input.GetAxis("RightTrigger1") > minTriggerRange)
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
@@ -53,7 +65,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger1") > 0)
+            if (Input.GetAxis("LeftTrigger1") > minTriggerRange)
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
@@ -68,7 +80,7 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 2 CONTROLS            
-            if (Input.GetAxis("RightTrigger2") > 0)
+            if (Input.GetAxis("RightTrigger2") > minTriggerRange)
             {
                 if (!rtDownPlayer2 && !ltDownPlayer2)
                 {
@@ -82,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2= false;
             }
 
-            if (Input.GetAxis("LeftTrigger2") > 0)
+            if (Input.GetAxis("LeftTrigger2") > minTriggerRange)
             {
                 if (!ltDownPlayer2 && !rtDownPlayer2)
                 {
@@ -99,7 +111,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             #region PLAYER 3 CONTROLS            
-            if (Input.GetAxis("RightTrigger3") > 0)
+            if (Input.GetAxis("RightTrigger3") > minTriggerRange)
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
@@ -113,7 +125,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger3") > 0)
+            if (Input.GetAxis("LeftTrigger3") > minTriggerRange)
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
@@ -128,7 +140,7 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 4 CONTROLS            
-            if (Input.GetAxis("RightTrigger4") > 0)
+            if (Input.GetAxis("RightTrigger4") > minTriggerRange)
             {
                 if (!rtDownPlayer2 && !ltDownPlayer2)
                 {
@@ -142,7 +154,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger4") > 0)
+            if (Input.GetAxis("LeftTrigger4") > minTriggerRange)
             {
                 if (!ltDownPlayer2 && !rtDownPlayer2)
                 {
@@ -159,20 +171,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Movement()
-    {
-
-
-
-
-    }
-
     //Player index: {1, 2, 3, 4}
     void OnRightTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
-        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
+
+        rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 
@@ -180,7 +185,8 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Left: Player " + playerIndex);
-        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
+
+        ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 }
