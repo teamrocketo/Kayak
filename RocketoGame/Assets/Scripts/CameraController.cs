@@ -20,13 +20,16 @@ public class CameraController : MonoBehaviour
     public float distance_between_players;
     public Vector3 v_winner;
 
-    [Range(0.0f, 1.0f)]
+    [Range(0.33f, 0.5f)]
     public float offset_multipler = 0.33f;
+
+    private float min_offser_multipler = 0.33f;
+    private float max_offser_multipler = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        offset.Set(0.0f, this.transform.position.y, this.transform.position.z);
+        //offset.Set(0.0f, this.transform.position.y, this.transform.position.z);
 
         current_winner = player1;
 
@@ -52,23 +55,32 @@ public class CameraController : MonoBehaviour
         if (max_distance_between_players < distance_between_players)
             distance_between_players = max_distance_between_players;
 
-        if (distance_between_players < 10.0f)
+
+        offset_multipler = -0.0085f * distance_between_players + max_offser_multipler;
+
+        /*if (distance_between_players < 10.0f)
         {
             offset_multipler = 0.5f;
         }
         else if (distance_between_players >= 10.0f)
-            offset_multipler = 0.33f;
+            offset_multipler = 0.33f;*/
 
         v_winner = current_loser.position - current_winner.position;
         v_winner.Normalize();
         v_winner = current_winner.position + (v_winner * (offset_multipler * distance_between_players));
 
-        // Move the camera
-        Vector3 desired_position = v_winner + offset;
-        Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
+        float y_smooth_multiplier = 1.5f - offset_multipler;
 
+        // Move the camera
+        Vector3 lil_off = new Vector3(offset.x, offset.y * y_smooth_multiplier, offset.z * y_smooth_multiplier);
+        Vector3 desired_position = v_winner + lil_off;
+        Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
+        Debug.Log(offset_multipler);
+        //smoothed_position.Set(smoothed_position.x, smoothed_position.y * y_smooth_multiplier, smoothed_position.z* y_smooth_multiplier);
 
         transform.position = smoothed_position;
+
+
 	}
 
 	private void OnDrawGizmos()
