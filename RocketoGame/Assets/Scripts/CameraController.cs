@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     public float time_to_lose = 3.0f;
     private float timer = 0.0f;
 
-    private bool game_end = false;
+    public bool game_end = false;
 
     // Start is called before the first frame update
     void Start()
