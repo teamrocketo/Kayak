@@ -89,25 +89,25 @@
 		float4 frag(v2f i) : SV_Target
 		{
 			float existingDepth01 = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPosition)).r;
-		float existingDepthLinear = LinearEyeDepth(existingDepth01);
-		float depthDifference = existingDepthLinear - i.screenPosition.w;
-		float waterDepthDifference01 = saturate(depthDifference / _DepthMaxDistance);
-		float4 waterColor = lerp(_DepthGradientShallow, _DepthGradientDeep, waterDepthDifference01);
+			float existingDepthLinear = LinearEyeDepth(existingDepth01);
+			float depthDifference = existingDepthLinear - i.screenPosition.w;
+			float waterDepthDifference01 = saturate(depthDifference / _DepthMaxDistance);
+			float4 waterColor = lerp(_DepthGradientShallow, _DepthGradientDeep, waterDepthDifference01);
 
-		// Add the fragment shader, just above the current noiseUV declaration line.
-		float2 distortSample = (tex2D(_SurfaceDistortion, i.distortUV).xy * 2 - 1) * _SurfaceDistortionAmount;
+			// Add the fragment shader, just above the current noiseUV declaration line.
+			float2 distortSample = (tex2D(_SurfaceDistortion, i.distortUV).xy * 2 - 1) * _SurfaceDistortionAmount;
 
-		float2 noiseUV = float2((i.noiseUV.x + _Time.y * _SurfaceNoiseScroll.x) + distortSample.x, (i.noiseUV.y + _Time.y * _SurfaceNoiseScroll.y) + distortSample.y);
-		float surfaceNoiseSample = tex2D(_SurfaceNoise, noiseUV).r;
-		float3 existingNormal = tex2Dproj(_CameraNormalsTexture, UNITY_PROJ_COORD(i.screenPosition));
-		float3 normalDot = saturate(dot(existingNormal, i.viewNormal));
-		float foamDistance = lerp(_FoamMaxDistance, _FoamMinDistance, normalDot);
-		float foamDepthDifference01 = saturate(depthDifference / foamDistance);
-		float surfaceNoiseCutoff = foamDepthDifference01 * _SurfaceNoiseCutoff;
+			float2 noiseUV = float2((i.noiseUV.x + _Time.y * _SurfaceNoiseScroll.x) + distortSample.x, (i.noiseUV.y + _Time.y * _SurfaceNoiseScroll.y) + distortSample.y);
+			float surfaceNoiseSample = tex2D(_SurfaceNoise, noiseUV).r;
+			float3 existingNormal = tex2Dproj(_CameraNormalsTexture, UNITY_PROJ_COORD(i.screenPosition));
+			float3 normalDot = saturate(dot(existingNormal, i.viewNormal));
+			float foamDistance = lerp(_FoamMaxDistance, _FoamMinDistance, normalDot);
+			float foamDepthDifference01 = saturate(depthDifference / foamDistance);
+			float surfaceNoiseCutoff = foamDepthDifference01 * _SurfaceNoiseCutoff;
 
-		float surfaceNoise = smoothstep(surfaceNoiseCutoff - SMOOTHSTEP_AA, surfaceNoiseCutoff + SMOOTHSTEP_AA, surfaceNoiseSample);
+			float surfaceNoise = smoothstep(surfaceNoiseCutoff - SMOOTHSTEP_AA, surfaceNoiseCutoff + SMOOTHSTEP_AA, surfaceNoiseSample);
 
-		return waterColor + surfaceNoise;
+			return waterColor + surfaceNoise;
 		}
 			ENDCG
 		}
