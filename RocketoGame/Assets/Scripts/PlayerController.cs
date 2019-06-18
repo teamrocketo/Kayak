@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float forceDistance = 1f;
     public float maxVelocity = 20f;
     public float minTriggerRange = 0.5f;
+    public float torqueAngle = 45f;
 
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if(boatIndex == 0)
         {
             #region PLAYER 1 CONTROLS            
-            if (Input.GetAxis("RightTrigger1") > minTriggerRange)
+            if (Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right"))
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger1") > minTriggerRange)
+            if (Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left"))
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             #region PLAYER 3 CONTROLS            
-            if (Input.GetAxis("RightTrigger3") > minTriggerRange)
+            if (Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up"))
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
@@ -124,7 +125,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger3") > minTriggerRange)
+            if (Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down"))
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
@@ -176,9 +177,7 @@ public class PlayerController : MonoBehaviour
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
 
-
-
-        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
+        rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 
@@ -186,7 +185,8 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Left: Player " + playerIndex);
-        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
+
+        ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
     }
 }
