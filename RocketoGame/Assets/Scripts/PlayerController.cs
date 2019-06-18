@@ -49,10 +49,13 @@ public class PlayerController : MonoBehaviour
     void OnRightTriggerPressed()
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
+        Debug.Log("Right");
+
     }
 
     void OnLeftTriggerPressed()
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
+        Debug.Log("Left");
     }
 }
