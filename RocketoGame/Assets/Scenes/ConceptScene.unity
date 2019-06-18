@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641275, b: 0.5748174, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -281,7 +281,7 @@ MonoBehaviour:
   player1: {fileID: 1083340673}
   player2: {fileID: 1441927021}
   smooth_speed: 0.125
-  max_distance_between_players: 10
+  max_distance_between_players: 50
   offset: {x: 0, y: 20, z: -15}
   current_winner: {fileID: 0}
   current_loser: {fileID: 0}
