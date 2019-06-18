@@ -1,4 +1,5 @@
 ﻿
+﻿
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ public class CameraController : MonoBehaviour
         offset.Set(0.0f, this.transform.position.y, this.transform.position.z);
 
         current_winner = player1;
+
         current_loser = player2;
     }
 
@@ -64,6 +66,7 @@ public class CameraController : MonoBehaviour
         // Move the camera
         Vector3 desired_position = v_winner + offset;
         Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
+
 
         transform.position = smoothed_position;
 	}
