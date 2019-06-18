@@ -30,6 +30,7 @@ public class CameraController : MonoBehaviour
     public float timer = 0.0f;
 
     public bool game_end = false;
+    public GameObject winner;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +38,12 @@ public class CameraController : MonoBehaviour
         //offset.Set(0.0f, this.transform.position.y, this.transform.position.z);
 
         current_winner = player1;
-
+        winner = null;
         current_loser = player2;
     }
 
     public void SetFirstPlayer(GameObject first_player){
+        winner = first_player;
         if(first_player.tag == "player1"){
             current_winner = player1;
             current_loser = player2;
@@ -54,6 +56,10 @@ public class CameraController : MonoBehaviour
 	private void Update()
 	{
         timer += Time.deltaTime;
+        if(timer > 3.0f){
+            game_end = true;
+            return;
+        }
         // Victory / Lose conditions!
         Vector3 screenPoint = this.GetComponent<Camera>().WorldToViewportPoint(current_loser.position);
         if (screenPoint.z > 0 && screenPoint.x > 0.0f && screenPoint.x < 1.0f && screenPoint.y > 0.0f && screenPoint.y < 1.0f)
