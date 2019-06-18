@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float rowForce = 5f;
+    [Range(0, 1)]
     public uint boatIndex = 0u;
+    
+    [Header("Row Attributes")]
+    [Space(-2f)]
+    public float rowForce = 5f;
     public float forceDistance = 1f;
-    public float maxVelocity = 20f;
-    public float minTriggerRange = 0.5f;
     public float torqueAngle = 45f;
 
+    [Space(6f)]
+    [Tooltip("Cap the rigidbody velocity to a maximum value")]
+    public float maxVelocity = 20f;
+    [Tooltip("The minimum amount of pressure you have to set to the triggers to detect the key down (0->1)")]
+    public float minTriggerRange = 0.5f;
+    public float rowCooldown = 0.1f;
+
+    //To imitate the KeyDown behavior
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
-
     private bool rtDownPlayer2 = false;
     private bool ltDownPlayer2 = false;
 
@@ -22,12 +31,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 rtForceDir;
     private Vector3 ltForceDir;
 
-    //TODO: ROW COOLDOWN
-
+    //TODO: USE THIS BOOLS TO APPLY FORCES ON THE FIXEDUPDATE INSTEAD OF ON THE ONTRIGGER, IN THE UPDATE
     private bool rightPressed1 = false;
     private bool rightPressed2 = false;
     private bool leftPressed1 = false;
     private bool leftPressed2 = false;
+
+    private float timeToTriggerP1 = 0f;
+    private float timeToTriggerP2 = 0f;
 
     void Start()
     {
@@ -35,9 +46,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
-    {
-
-
+    { 
         if (rb.velocity.magnitude > maxVelocity)
         {
             rb.velocity = rb.velocity.normalized * maxVelocity;
@@ -51,11 +60,12 @@ public class PlayerController : MonoBehaviour
         if(boatIndex == 0)
         {
             #region PLAYER 1 CONTROLS            
-            if (Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right"))
+            if ((Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right")) && timeToTriggerP1 < Time.time)
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
                     OnRightTriggerPressed(1);
+                    timeToTriggerP1 = Time.time + rowCooldown;
                 }
 
                 rtDownPlayer1 = true;
@@ -65,11 +75,12 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left"))
+            if ((Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left")) && timeToTriggerP1 < Time.time)
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
                     OnLeftTriggerPressed(1);
+                    timeToTriggerP1 = Time.time + rowCooldown;
                 }
                 ltDownPlayer1 = true;
             }
@@ -80,11 +91,12 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 2 CONTROLS            
-            if (Input.GetAxis("RightTrigger2") > minTriggerRange)
+            if ((Input.GetAxis("RightTrigger2") > minTriggerRange) && timeToTriggerP2 < Time.time)
             {
                 if (!rtDownPlayer2 && !ltDownPlayer2)
                 {
                     OnRightTriggerPressed(2);
+                    timeToTriggerP2 = Time.time + rowCooldown;
                 }
 
                 rtDownPlayer2 = true;
@@ -94,11 +106,12 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2= false;
             }
 
-            if (Input.GetAxis("LeftTrigger2") > minTriggerRange)
+            if ((Input.GetAxis("LeftTrigger2") > minTriggerRange) && timeToTriggerP2 < Time.time)
             {
                 if (!ltDownPlayer2 && !rtDownPlayer2)
                 {
                     OnLeftTriggerPressed(2);
+                    timeToTriggerP2 = Time.time + rowCooldown;
                 }
                 ltDownPlayer2 = true;
             }
@@ -111,11 +124,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             #region PLAYER 3 CONTROLS            
-            if (Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up"))
+            if ((Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up")) && timeToTriggerP1 < Time.time)
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
                     OnRightTriggerPressed(3);
+                    timeToTriggerP1 = Time.time + rowCooldown;
                 }
 
                 rtDownPlayer1 = true;
@@ -125,11 +139,12 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down"))
+            if ((Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down")) && timeToTriggerP1 < Time.time)
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
                     OnLeftTriggerPressed(3);
+                    timeToTriggerP1 = Time.time + rowCooldown;
                 }
                 ltDownPlayer1 = true;
             }
@@ -140,11 +155,12 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 4 CONTROLS            
-            if (Input.GetAxis("RightTrigger4") > minTriggerRange)
+            if ((Input.GetAxis("RightTrigger4") > minTriggerRange) && timeToTriggerP2 < Time.time)
             {
                 if (!rtDownPlayer2 && !ltDownPlayer2)
                 {
                     OnRightTriggerPressed(4);
+                    timeToTriggerP2 = Time.time + rowCooldown;
                 }
 
                 rtDownPlayer2 = true;
@@ -154,11 +170,12 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger4") > minTriggerRange)
+            if ((Input.GetAxis("LeftTrigger4") > minTriggerRange) && timeToTriggerP2 < Time.time)
             {
                 if (!ltDownPlayer2 && !rtDownPlayer2)
                 {
                     OnLeftTriggerPressed(4);
+                    timeToTriggerP2 = Time.time + rowCooldown;
                 }
                 ltDownPlayer2 = true;
             }
@@ -175,7 +192,7 @@ public class PlayerController : MonoBehaviour
     void OnRightTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
-        Debug.Log("Right: Player " + playerIndex);
+        //Debug.Log("Right: Player " + playerIndex);
 
         rtForceDir = (Quaternion.AngleAxis(-torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(rtForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
@@ -184,7 +201,7 @@ public class PlayerController : MonoBehaviour
     void OnLeftTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
-        Debug.Log("Left: Player " + playerIndex);
+        //Debug.Log("Left: Player " + playerIndex);
 
         ltForceDir = (Quaternion.AngleAxis(torqueAngle, Vector3.up) * transform.forward).normalized;
         rb.AddForceAtPosition(ltForceDir * rowForce, transform.position + transform.forward * forceDistance, ForceMode.Impulse);
