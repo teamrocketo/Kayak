@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518132441}
   m_LocalRotation: {x: 0.4175445, y: -0.011008454, z: 0.0050590164, w: 0.9085758}
-  m_LocalPosition: {x: -4.49, y: 16, z: -20.09}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -210,8 +210,8 @@ MonoBehaviour:
   player1: {fileID: 1340331387}
   player2: {fileID: 1796804296}
   smooth_speed: 0.125
-  max_distance_between_players: 10
-  offset: {x: 0, y: 20, z: -20}
+  max_distance_between_players: 20
+  offset: {x: 0, y: 15, z: -16}
   current_winner: {fileID: 0}
   current_loser: {fileID: 0}
   distance_between_players: 0
