@@ -163,7 +163,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
   m_Animations: []
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &160238863
@@ -360,7 +360,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
   m_Animations: []
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &273845461
@@ -515,6 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 518132444}
+  - component: {fileID: 518132446}
   - component: {fileID: 518132443}
   - component: {fileID: 518132442}
   - component: {fileID: 518132445}
@@ -612,6 +613,32 @@ MonoBehaviour:
   v_winner: {x: 0, y: 0, z: 0}
   offset_multipler: 0.33
   time_to_lose: 3
+  timer: 0
+  game_end: 0
+--- !u!114 &518132446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518132441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8a252e908df4eb0b5cbcd6c59cc8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1340331387}
+  player2: {fileID: 1796804296}
+  smooth_speed: 0.125
+  max_distance_between_players: 20
+  offset: {x: 0, y: 0, z: 0}
+  current_winner: {fileID: 0}
+  current_loser: {fileID: 0}
+  distance_between_players: 0
+  v_winner: {x: 0, y: 0, z: 0}
+  offset_multipler: 0.33
+  time_to_lose: 3
+  timer: 0
   game_end: 0
 --- !u!1 &582444040
 GameObject:
@@ -799,7 +826,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
   m_Animations: []
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &771719780
@@ -982,7 +1009,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 46}
-  m_SizeDelta: {x: 364.83, y: 329}
+  m_SizeDelta: {x: 429.64, y: 329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &1316008756
 Animation:
@@ -996,7 +1023,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
   m_Animations: []
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &1316008757
@@ -1242,6 +1269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1630771209}
+  - component: {fileID: 1630771210}
   - component: {fileID: 1630771208}
   - component: {fileID: 1630771207}
   - component: {fileID: 1630771206}
@@ -1335,6 +1363,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1630771210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630771205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51896f63bbb0348ebac7e4c79cbe0a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera_controller: {fileID: 518132445}
+  cd_3: {fileID: 160238864}
+  cd_2: {fileID: 771719781}
+  cd_1: {fileID: 273845462}
+  cd_out: {fileID: 1316008758}
 --- !u!1 &1796804292
 GameObject:
   m_ObjectHideFlags: 0

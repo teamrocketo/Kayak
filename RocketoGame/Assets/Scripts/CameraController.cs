@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
     private float max_offser_multipler = 0.5f;
 
     public float time_to_lose = 3.0f;
-    private float timer = 0.0f;
+    public float timer = 0.0f;
 
     public bool game_end = false;
 
@@ -53,12 +53,12 @@ public class CameraController : MonoBehaviour
 
 	private void Update()
 	{
-
+        timer += Time.deltaTime;
         // Victory / Lose conditions!
         Vector3 screenPoint = this.GetComponent<Camera>().WorldToViewportPoint(current_loser.position);
         if (screenPoint.z > 0 && screenPoint.x > 0.0f && screenPoint.x < 1.0f && screenPoint.y > 0.0f && screenPoint.y < 1.0f)
         {
-            timer = 0.0f;
+            //timer = 0.0f;
         }
         else
         {
