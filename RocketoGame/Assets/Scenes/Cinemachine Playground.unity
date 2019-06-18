@@ -357,7 +357,7 @@ Animation:
   m_GameObject: {fileID: 273845458}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
+  m_Animation: {fileID: 7400000, guid: 84a597425237446549ec59f1adbe31f2, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 0
@@ -373,7 +373,7 @@ Animator:
   m_GameObject: {fileID: 273845458}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 57a798df95f6f4fb5a591a22973cf062, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5ac98295660884280a18f56f72a8764b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -823,10 +823,10 @@ Animation:
   m_GameObject: {fileID: 771719777}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
+  m_Animation: {fileID: 7400000, guid: d005c4717aba142c09f1faf2b020d270, type: 2}
   m_Animations: []
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &771719780
@@ -839,7 +839,7 @@ Animator:
   m_GameObject: {fileID: 771719777}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 57a798df95f6f4fb5a591a22973cf062, type: 2}
+  m_Controller: {fileID: 9100000, guid: a0e96a31272ae4710a44aaada7a2ab8a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1020,7 +1020,7 @@ Animation:
   m_GameObject: {fileID: 1316008754}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: acce551de6a4446f782eb580f581ebcc, type: 2}
+  m_Animation: {fileID: 7400000, guid: d920370e8d39d4499b5a049c615b40fa, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 0
@@ -1036,7 +1036,7 @@ Animator:
   m_GameObject: {fileID: 1316008754}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 57a798df95f6f4fb5a591a22973cf062, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5b0508f7f0a3c492d94b319d14527518, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
