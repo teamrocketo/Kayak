@@ -13,11 +13,26 @@ public class PlayerController : MonoBehaviour
     private bool rtDownPlayer2 = false;
     private bool ltDownPlayer2 = false;
 
+    private Rigidbody rb;
+
+    private Vector3 rtForceDir;
+    private Vector3 ltForceDir;
+
+    //TODO: MAX VELOCITY
+    //TODO: ROW COOLDOWN
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rtForceDir = (Quaternion.AngleAxis(-45, Vector3.up) * transform.forward).normalized;
+        ltForceDir = (Quaternion.AngleAxis(45, Vector3.up) * transform.forward).normalized;
+    }
+
     void Update()
     {
         InputManagement();
-        
 
+        Movement();
     }
 
     void InputManagement()
@@ -145,16 +160,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void Movement()
+    {
+
+
+
+
+    }
+
     //Player index: {1, 2, 3, 4}
     void OnRightTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Right: Player " + playerIndex);
+
+        rb.AddForce(rtForceDir * rowForce * Random.Range(0.0f,1.0f), ForceMode.Impulse);
     }
 
     void OnLeftTriggerPressed(uint playerIndex)
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         Debug.Log("Left: Player " + playerIndex);
+        rb.AddForce(ltForceDir * rowForce, ForceMode.Impulse);
     }
 }
