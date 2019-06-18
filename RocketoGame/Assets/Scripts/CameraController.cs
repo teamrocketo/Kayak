@@ -36,18 +36,19 @@ public class CameraController : MonoBehaviour
         current_loser = player2;
     }
 
-	private void Update()
-	{
-        if(Input.GetKeyDown("space")){
+    public void SetFirstPlayer(GameObject first_player){
+        if(first_player.tag == "player1"){
+            current_winner = player1;
+            current_loser = player2;
+        }else{
             current_winner = player2;
             current_loser = player1;
         }
+    }
 
-        if (Input.GetKeyDown("up"))
-        {
-            current_winner = player1;
-            current_loser = player2;
-        }
+	private void Update()
+	{
+        
 
         // Calculate the 1/3 distance between the 1st and 2nd place
         distance_between_players = Vector3.Distance(player1.position, player2.position);

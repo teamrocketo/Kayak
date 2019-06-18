@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             #region PLAYER 3 CONTROLS            
-            if (Input.GetAxis("RightTrigger3") > minTriggerRange)
+            if (Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up"))
             {
                 if (!rtDownPlayer1 && !ltDownPlayer1)
                 {
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if (Input.GetAxis("LeftTrigger3") > minTriggerRange)
+            if (Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down"))
             {
                 if (!ltDownPlayer1 && !rtDownPlayer1)
                 {
