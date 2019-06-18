@@ -5,7 +5,7 @@ using UnityEngine;
 public class RowController : MonoBehaviour
 {
     [SerializeField]
-    private Animator animator;
+    private Animation animation;
 
     private bool right = true;
 
@@ -17,11 +17,6 @@ public class RowController : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -transform.localScale.z);
         }
 
-        animator.SetBool("row", true);
-    }
-
-    private void Update()
-    {
-        animator.SetBool("row", false);
+        animation.Play();
     }
 }
