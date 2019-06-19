@@ -5985,6 +5985,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31.593794, y: 3.527176, z: 1}
   m_Center: {x: 0.5222788, y: 1.263588, z: 0}
+--- !u!198 &310880685 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1051673794751680822, guid: a6578971a8c3dfc4198541dca42dbae0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826030844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336934217
 GameObject:
   m_ObjectHideFlags: 0
@@ -12173,12 +12179,6 @@ RectTransform:
   m_AnchoredPosition: {x: 328, y: -254}
   m_SizeDelta: {x: 1058.9, y: 286.1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!198 &783047413 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9177599153272627538, guid: 236b748d11a4e8f47811bbfcec1474ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 940540524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &785896065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12803,12 +12803,6 @@ CapsuleCollider:
   m_Height: 0.029915115
   m_Direction: 1
   m_Center: {x: 0, y: -0.005768529, z: 0}
---- !u!198 &872339170 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9177599155073956393, guid: 236b748d11a4e8f47811bbfcec1474ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 940540524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &890184911
 GameObject:
   m_ObjectHideFlags: 0
@@ -17537,7 +17531,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -18848,19 +18842,28 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0.5
+        inSlope: 0.5224138
+        outSlope: 0.5224138
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.0990099
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.5023209
+        outSlope: 0.5023209
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.1029703
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -18902,6 +18905,12 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!198 &1060062965 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1051673795140355558, guid: a6578971a8c3dfc4198541dca42dbae0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826030844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1061519558
 GameObject:
   m_ObjectHideFlags: 0
@@ -19032,7 +19041,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -33452,19 +33461,28 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0.5
+        inSlope: 0.5224138
+        outSlope: 0.5224138
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.0990099
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.5023209
+        outSlope: 0.5023209
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.1029703
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -33959,6 +33977,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 46}
   m_SizeDelta: {x: 364.83, y: 329}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!198 &1452137416 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1051673796650549715, guid: a6578971a8c3dfc4198541dca42dbae0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826030844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458895286
 GameObject:
   m_ObjectHideFlags: 0
@@ -34304,6 +34328,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522568694}
   m_CullTransparentMesh: 0
+--- !u!198 &1555103378 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1051673794789883494, guid: a6578971a8c3dfc4198541dca42dbae0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826030844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1559178434
 GameObject:
   m_ObjectHideFlags: 0
@@ -34880,22 +34910,22 @@ PrefabInstance:
         type: 3}
       propertyPath: particleSystems.Array.data[0]
       value: 
-      objectReference: {fileID: 1865933973}
+      objectReference: {fileID: 1060062965}
     - target: {fileID: 1051673795708407824, guid: a6578971a8c3dfc4198541dca42dbae0,
         type: 3}
       propertyPath: particleSystems.Array.data[1]
       value: 
-      objectReference: {fileID: 2135181662}
+      objectReference: {fileID: 310880685}
     - target: {fileID: 1051673795708407824, guid: a6578971a8c3dfc4198541dca42dbae0,
         type: 3}
       propertyPath: particleSystems.Array.data[2]
       value: 
-      objectReference: {fileID: 872339170}
+      objectReference: {fileID: 1555103378}
     - target: {fileID: 1051673795708407824, guid: a6578971a8c3dfc4198541dca42dbae0,
         type: 3}
       propertyPath: particleSystems.Array.data[3]
       value: 
-      objectReference: {fileID: 783047413}
+      objectReference: {fileID: 1452137416}
     - target: {fileID: 1051673795708407824, guid: a6578971a8c3dfc4198541dca42dbae0,
         type: 3}
       propertyPath: rowControllerFront
@@ -35135,7 +35165,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -39829,12 +39859,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!198 &1865933973 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9177599153599850018, guid: 236b748d11a4e8f47811bbfcec1474ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 940540524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1868609845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40199,7 +40223,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -44893,9 +44917,3 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!198 &2135181662 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9177599154461675574, guid: 236b748d11a4e8f47811bbfcec1474ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 940540524}
-  m_PrefabAsset: {fileID: 0}
