@@ -6,12 +6,19 @@ public class MainMenu : MonoBehaviour
     public CinemachineVirtualCamera virtualCameraPrefab;
     public Transform credits;
     public Transform menu;
-    bool startBlend = false;
     public float _ConstantForce = 1.0f;
     CinemachineTrackedDolly dolly;
 
+    public Texture texture_play;
+    public Texture texture_credits;
+    public Texture texture_exit;
+
+    public Material mat;
+
     enum currentMenu { menu, goToCredits, credits, goToMenu };
     currentMenu state = currentMenu.menu;
+    enum currentSubMenu { play, credits, quit };
+    currentSubMenu subState = currentSubMenu.play;
     void Start()
     {
         dolly = virtualCameraPrefab.GetCinemachineComponent<CinemachineTrackedDolly>();
@@ -22,11 +29,58 @@ public class MainMenu : MonoBehaviour
         switch(state)
         {
             case currentMenu.menu:
-                if (Input.GetKeyDown(KeyCode.Space))
-                    state = currentMenu.goToCredits;
+                
+                switch (subState)
+                {
+                    case currentSubMenu.play:
+                        if (Input.GetKeyDown(KeyCode.Space))
+                            Application.LoadLevel("ConceptScene");
+                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        {
+                            subState = currentSubMenu.credits;
+                            mat.mainTexture = texture_credits;
+                            
+                        }
+                        else if (Input.GetKeyDown(KeyCode.UpArrow))
+                        {
+                            subState = currentSubMenu.quit;
+                            mat.mainTexture = texture_exit;
+                        }
+                        break;
+                    case currentSubMenu.credits:
+                        if (Input.GetKeyDown(KeyCode.Space))
+                            state = currentMenu.goToCredits;
+                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        {
+                            subState = currentSubMenu.quit;
+                            mat.mainTexture = texture_exit;
+                        }
+                        else if(Input.GetKeyDown(KeyCode.UpArrow))
+                        {
+                            subState = currentSubMenu.play;
+                            mat.mainTexture = texture_play;
+                        }
+                        break;
+                    case currentSubMenu.quit:
+                        if (Input.GetKeyDown(KeyCode.Space))
+                            Application.Quit();
+                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        {
+                            subState = currentSubMenu.play;
+                            mat.mainTexture = texture_play;
+                        }
+                        else if(Input.GetKeyDown(KeyCode.UpArrow))
+                        {
+                            subState = currentSubMenu.credits;
+                            mat.mainTexture = texture_credits;
+                        }
+                        break;
+                }
+
                 break;
             case currentMenu.goToCredits:
                 dolly.m_PathPosition += Time.deltaTime * _ConstantForce;
+
                 if (dolly.m_PathPosition >= 2)
                 {
                    // virtualCameraPrefab.LookAt = credits;

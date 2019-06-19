@@ -491,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: a4eec2bd32b1b7c42a5523128f1ec62d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ef2ea596a8823044e97e6e82d3d2f03a, type: 2}
+      objectReference: {fileID: 2100000, guid: 436d06203905eae4da34784d92aa37df, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4eec2bd32b1b7c42a5523128f1ec62d, type: 3}
 --- !u!4 &1089286082 stripped
@@ -571,7 +571,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.062745094, g: 1, b: 0.87489, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -610,8 +610,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373354495}
-  m_LocalRotation: {x: 0.06929908, y: -0.41635394, z: 0.031844452, w: 0.9059984}
-  m_LocalPosition: {x: 93.63465, y: 139.2738, z: 237.21}
+  m_LocalRotation: {x: 0.0775156, y: -0.51071465, z: 0.046303328, w: 0.8549959}
+  m_LocalPosition: {x: 93.62, y: 139.2738, z: 237.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -674,6 +674,10 @@ MonoBehaviour:
   credits: {fileID: 1731440737}
   menu: {fileID: 1427307834}
   _ConstantForce: 1
+  texture_play: {fileID: 2800000, guid: 19e98ab307c8a86429a367d9ecf71f09, type: 3}
+  texture_credits: {fileID: 2800000, guid: 94e4d17b3c04eaa4c8ee7f0568981da1, type: 3}
+  texture_exit: {fileID: 2800000, guid: 360a183f669fdff469bd26eacbc5697b, type: 3}
+  mat: {fileID: 2100000, guid: 4e28307a425eea4429be5a8c949582e0, type: 2}
 --- !u!1 &1427307833
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +744,7 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 2.16465, y: 0.44380188, z: 0}
+  - position: {x: 2.15, y: 0.44380188, z: 0.51}
     roll: 0
   - position: {x: 4.15979, y: 0.44380188, z: 0.5687866}
     roll: 0
@@ -748,7 +752,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: 2.023323, y: 4.9606323, z: 11.24324}
     roll: 0
-  - position: {x: -0.5990524, y: -0.0566864, z: 2.5933228}
+  - position: {x: -1.31, y: 0.46, z: 2.8}
     roll: 0
 --- !u!4 &1521562586
 Transform:
@@ -887,8 +891,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675995418}
-  m_LocalRotation: {x: 0.06929908, y: -0.41635394, z: 0.031844452, w: 0.9059984}
-  m_LocalPosition: {x: 93.63465, y: 139.2738, z: 237.21}
+  m_LocalRotation: {x: 0.0775156, y: -0.51071465, z: 0.046303328, w: 0.8549959}
+  m_LocalPosition: {x: 93.62, y: 139.2738, z: 237.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565630790}
@@ -1040,7 +1044,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e512d8157b1aa874599700a7f1475bdc, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e28307a425eea4429be5a8c949582e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
 --- !u!1 &1821117623
@@ -1258,5 +1262,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: de95fc768cb09994ea13904c4e76d2c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
