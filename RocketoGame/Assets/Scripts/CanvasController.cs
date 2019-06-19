@@ -45,6 +45,8 @@ public class CanvasController : MonoBehaviour
     private float start_timer = 0.0f;
     public bool start = false;
 
+    public bool up_a = false;
+
     public void OnRestartPressed(){
         SceneManager.LoadScene("ConceptScene");
     }
@@ -151,15 +153,20 @@ public class CanvasController : MonoBehaviour
             }
         }
 
-        if (tuto2.active && gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("space"))
+        if (gpState.Buttons.A == ButtonState.Released)
+            up_a = false;
+
+        if (!up_a && tuto2.active && gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("space"))
         {
             // TODO: GUILLERMO BOOL;
             tuto2.active = false;
             start = true;
+            
         }
         if(tuto1.active && gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("space")){
             tuto1.active = false;
             tuto2.active = true;
+            up_a = true;
         }
 
         if(camera_controller.game_end){
