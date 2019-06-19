@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour
 {
+    public static CanvasController instance = null;
+
+    CanvasController()
+    {
+        instance = this;
+    }
+
     public CameraController camera_controller;
     public TextMeshProUGUI cd_3;
     public TextMeshProUGUI cd_2;
@@ -28,7 +35,7 @@ public class CanvasController : MonoBehaviour
 
     private float timer = 0.0f;
     private float start_timer = 0.0f;
-    private bool start = false;
+    public bool start = false;
 
     public void OnRestartPressed(){
         SceneManager.LoadScene("ConceptScene");
@@ -101,12 +108,12 @@ public class CanvasController : MonoBehaviour
             }
         }
 
-        if (tuto2.active && /*JONY PUT HERE GAMEPAD INPUT!*/ Input.GetKeyDown("space"))
+        if (tuto2.active && Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("space"))
         {
             tuto2.active = false;
             start = true;
         }
-        if(tuto1.active && /*JONY PUT HERE GAMEPAD INPUT!*/ Input.GetKeyDown("space")){
+        if(tuto1.active && Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("space")){
             tuto1.active = false;
             tuto2.active = true;
 

@@ -263,6 +263,9 @@ public class PlayerController : MonoBehaviour
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         //Debug.Log("Right: Player " + playerIndex);
 
+        if (CanvasController.instance.start || CanvasController.instance.tuto1.active || CanvasController.instance.tuto2.active)
+            return;
+
         if (playerIndex % 2 != 0)
         {
             rowControllerFront.OnRow(true);
@@ -279,6 +282,9 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: APPLY FORCES AND SYNCRONIZE WITH THE ANIMS
         //Debug.Log("Left: Player " + playerIndex);
+
+        if (CanvasController.instance.start || CanvasController.instance.tuto1.active || CanvasController.instance.tuto2.active)
+            return;
 
         if (playerIndex % 2 != 0)
         {
