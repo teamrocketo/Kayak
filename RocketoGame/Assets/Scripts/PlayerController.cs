@@ -233,10 +233,12 @@ public class PlayerController : MonoBehaviour
 
             if (playerIndex % 2 != 0)
             {
+                particleSystems[4].Play();
                 particleSystems[0].Play();
             }
             else
             {
+                particleSystems[6].Play();
                 particleSystems[2].Play();
             }
         }
@@ -247,10 +249,12 @@ public class PlayerController : MonoBehaviour
 
             if (playerIndex % 2 != 0)
             {
+                particleSystems[5].Play();
                 particleSystems[1].Play();
             }
             else
             {
+                particleSystems[7].Play();
                 particleSystems[3].Play();
             }
         }
