@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
                         }
                         break;
                     case currentSubMenu.credits:
-                        if (Input.GetButtonDown("ControllerButtonB") || Input.GetKeyDown(KeyCode.Space))
+                        if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown(KeyCode.Space))
                         {
                             // credits
                             audioSource.PlayOneShot(clipPress);
@@ -121,7 +121,7 @@ public class MainMenu : MonoBehaviour
                 }
                 break;
             case currentMenu.credits:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetButtonDown("ControllerButtonB") || Input.GetKeyDown(KeyCode.Space))
                 {
                     state = currentMenu.goToMenu;
                     audioSource.PlayOneShot(clipPress);
