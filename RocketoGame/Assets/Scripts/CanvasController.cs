@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using XInputDotNetPure;
 
 public class CanvasController : MonoBehaviour
 {
@@ -12,7 +13,14 @@ public class CanvasController : MonoBehaviour
     {
         instance = this;
     }
-
+    PlayerIndex controllerNumber = PlayerIndex.One;
+    PlayerIndex controllerNumber2 = PlayerIndex.Two;
+    PlayerIndex controllerNumber3 = PlayerIndex.Three;
+    PlayerIndex controllerNumber4 = PlayerIndex.Four;
+    GamePadState gpState;
+    GamePadState gpState2;
+    GamePadState gpState3;
+    GamePadState gpState4;
     public CameraController camera_controller;
     public TextMeshProUGUI cd_3;
     public TextMeshProUGUI cd_2;
@@ -49,6 +57,26 @@ public class CanvasController : MonoBehaviour
 
     void Start()
     {
+        gpState = GamePad.GetState(controllerNumber);
+        if (gpState.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
+        gpState2 = GamePad.GetState(controllerNumber2);
+        if (gpState2.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
+        gpState3 = GamePad.GetState(controllerNumber3);
+        if (gpState3.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
+        gpState4 = GamePad.GetState(controllerNumber4);
+        if (gpState4.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
         cd_3.enabled = false;
         cd_2.enabled = false;
         cd_1.enabled = false;
@@ -69,6 +97,10 @@ public class CanvasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gpState = GamePad.GetState(controllerNumber);
+        gpState2 = GamePad.GetState(controllerNumber2);
+        gpState3 = GamePad.GetState(controllerNumber3);
+        gpState4 = GamePad.GetState(controllerNumber4);
         if (start)
         {
             start_timer += Time.deltaTime;
@@ -119,12 +151,13 @@ public class CanvasController : MonoBehaviour
             }
         }
 
-        if (tuto2.active && Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("space"))
+        if (tuto2.active && gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("space"))
         {
+            // TODO: GUILLERMO BOOL;
             tuto2.active = false;
             start = true;
         }
-        if(tuto1.active && Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("space")){
+        if(tuto1.active && gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("space")){
             tuto1.active = false;
             tuto2.active = true;
         }
@@ -147,11 +180,11 @@ public class CanvasController : MonoBehaviour
                 restart.GetComponent<Animation>().Play();
                 exit.GetComponent<Animation>().Play();
             }
-			if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("up"))
+			if (gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("up"))
             {
                 OnRestartPressed();
             }
-			if (Input.GetButtonDown("ControllerButtonB")|| Input.GetKeyDown("down"))
+			if (gpState.Buttons.B == ButtonState.Pressed || Input.GetKeyDown("down"))
             {
                 OnExitPressed();
             }

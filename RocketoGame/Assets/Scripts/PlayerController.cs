@@ -1,9 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class PlayerController : MonoBehaviour
 {
+
+    PlayerIndex controllerNumber = PlayerIndex.One;
+    PlayerIndex controllerNumber2 = PlayerIndex.Two;
+    PlayerIndex controllerNumber3 = PlayerIndex.Three;
+    PlayerIndex controllerNumber4 = PlayerIndex.Four;
+    GamePadState gpState;
+    GamePadState gpState2;
+    GamePadState gpState3;
+    GamePadState gpState4;
+
     [Range(0, 1)]
     public uint boatIndex = 0u;
     
@@ -57,10 +68,34 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        gpState = GamePad.GetState(controllerNumber);
+        if (gpState.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
+        gpState2 = GamePad.GetState(controllerNumber2);
+        if (gpState2.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
+        gpState3 = GamePad.GetState(controllerNumber3);
+        if (gpState3.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
+        gpState4 = GamePad.GetState(controllerNumber4);
+        if (gpState4.IsConnected)
+            Debug.Log("SIII!!");
+        else
+            Debug.Log("NOOO!!");
     }
 
     void Update()
-    { 
+    {
+        gpState = GamePad.GetState(controllerNumber);
+        gpState2 = GamePad.GetState(controllerNumber2);
+        gpState3 = GamePad.GetState(controllerNumber3);
+        gpState4 = GamePad.GetState(controllerNumber4);
         if (rb.velocity.magnitude > maxVelocity)
         {
             rb.velocity = rb.velocity.normalized * maxVelocity;
@@ -74,7 +109,7 @@ public class PlayerController : MonoBehaviour
         if(boatIndex == 0)
         {
             #region PLAYER 1 CONTROLS            
-            if ((Input.GetAxis("RightTrigger1") > minTriggerRange || Input.GetKeyDown("right")))
+            if ((gpState.Triggers.Right > minTriggerRange || Input.GetKeyDown("right")))
             {
                 if (timeToTriggerP1 < Time.time)
                 {
@@ -91,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if ((Input.GetAxis("LeftTrigger1") > minTriggerRange|| Input.GetKeyDown("left")))
+            if ((gpState.Triggers.Left > minTriggerRange || Input.GetKeyDown("left")))
             {
                 if(timeToTriggerP1 < Time.time)
                 {
@@ -111,7 +146,7 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 2 CONTROLS            
-            if ((Input.GetAxis("RightTrigger2") > minTriggerRange))
+            if ((gpState2.Triggers.Right > minTriggerRange))
             {
                 if(timeToTriggerP2 < Time.time)
                 {
@@ -129,7 +164,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2= false;
             }
 
-            if ((Input.GetAxis("LeftTrigger2") > minTriggerRange))
+            if (gpState2.Triggers.Left > minTriggerRange)
             {
                 if(timeToTriggerP2 < Time.time)
                 {
@@ -151,7 +186,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             #region PLAYER 3 CONTROLS            
-            if ((Input.GetAxis("RightTrigger3") > minTriggerRange|| Input.GetKeyDown("up")))
+            if (gpState3.Triggers.Right > minTriggerRange)
             {
                 if(timeToTriggerP1 < Time.time)
                 {
@@ -169,7 +204,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer1 = false;
             }
 
-            if ((Input.GetAxis("LeftTrigger3") > minTriggerRange|| Input.GetKeyDown("down")))
+            if (gpState3.Triggers.Left > minTriggerRange)
             {
                 if(timeToTriggerP1 < Time.time)
                 {
@@ -189,7 +224,7 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region PLAYER 4 CONTROLS            
-            if ((Input.GetAxis("RightTrigger4") > minTriggerRange))
+            if (gpState4.Triggers.Right > minTriggerRange)
             {
                 if(timeToTriggerP2 < Time.time)
                 {
@@ -207,7 +242,7 @@ public class PlayerController : MonoBehaviour
                 rtDownPlayer2 = false;
             }
 
-            if ((Input.GetAxis("LeftTrigger4") > minTriggerRange))
+            if (gpState4.Triggers.Left > minTriggerRange)
             {
                 if(timeToTriggerP2 < Time.time)
                 {
