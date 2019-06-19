@@ -142,11 +142,11 @@ public class CanvasController : MonoBehaviour
                 restart.GetComponent<Animation>().Play();
                 exit.GetComponent<Animation>().Play();
             }
-            if (Input.GetButtonDown("ControllerButtonA"))
+			if (Input.GetButtonDown("ControllerButtonA") || Input.GetButtonDown("space"))
             {
                 OnRestartPressed();
             }
-            if (Input.GetButtonDown("ControllerButtonB"))
+			if (Input.GetButtonDown("ControllerButtonB")|| Input.GetButtonDown("space"))
             {
                 OnExitPressed();
             }
