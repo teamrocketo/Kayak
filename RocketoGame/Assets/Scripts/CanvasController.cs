@@ -81,6 +81,9 @@ public class CanvasController : MonoBehaviour
             else
                 if (start_timer > 3.12f && !go.enabled && !four)
             {
+                this.GetComponent<AudioSource>().pitch = 0.5f;
+                this.GetComponent<AudioSource>().Play();
+                this.GetComponent<AudioSource>().pitch = 1;
                 four = true;
                 cd_1.enabled = false;
                 go.enabled = true;
@@ -89,6 +92,7 @@ public class CanvasController : MonoBehaviour
             else
                     if (start_timer > 2.12f && !cd_1.enabled && !three)
             {
+                this.GetComponent<AudioSource>().Play();
                 cd_1.GetComponent<Animation>().Play();
                 three = true;
                 cd_2.enabled = false;
@@ -98,6 +102,7 @@ public class CanvasController : MonoBehaviour
             else
                         if (start_timer > 1.15f && !cd_2.enabled && !two)
             {
+                this.GetComponent<AudioSource>().Play();
                 cd_2.GetComponent<Animation>().Play();
                 two = true;
                 cd_3.enabled = false;
@@ -108,6 +113,7 @@ public class CanvasController : MonoBehaviour
                             if (start_timer > 0.0f && !cd_3.enabled && !one)
             {
                 cd_3.enabled = true;
+                this.GetComponent<AudioSource>().Play();
                 cd_3.GetComponent<Animation>().Play();
                 one = true;
             }
