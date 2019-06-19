@@ -109,7 +109,7 @@ public class CameraController : MonoBehaviour
             v_winner.Normalize();
             v_winner = current_winner.position;
                                      
-            offset.Set(offset.x, 5.0f, 5.0f);
+            offset.Set(offset.x, 5.0f, -5.0f);
             Vector3 lil_off = new Vector3(offset.x, offset.y, offset.z);
             Vector3 desired_position = v_winner + lil_off;
             Vector3 smoothed_position = Vector3.Lerp(transform.position, desired_position, smooth_speed);
