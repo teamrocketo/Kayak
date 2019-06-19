@@ -116,8 +116,6 @@ public class CanvasController : MonoBehaviour
         if(tuto1.active && Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("space")){
             tuto1.active = false;
             tuto2.active = true;
-
-
         }
 
 
@@ -138,6 +136,14 @@ public class CanvasController : MonoBehaviour
                 info.GetComponent<Animation>().Play();
                 restart.GetComponent<Animation>().Play();
                 exit.GetComponent<Animation>().Play();
+            }
+            if (Input.GetButtonDown("ControllerButtonA"))
+            {
+                OnRestartPressed();
+            }
+            if (Input.GetButtonDown("ControllerButtonB"))
+            {
+                OnExitPressed();
             }
         }
 

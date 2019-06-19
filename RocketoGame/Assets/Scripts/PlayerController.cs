@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     public RowController rowControllerFront;
     public RowController rowControllerBack;
 
+    public AudioClip splashFX;
+
+    private AudioSource audioSource;
+
     //To imitate the KeyDown behavior
     private bool rtDownPlayer1 = false;
     private bool ltDownPlayer1 = false;
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -241,6 +246,8 @@ public class PlayerController : MonoBehaviour
                 particleSystems[6].Play();
                 particleSystems[2].Play();
             }
+
+            
         }
         else
         {
@@ -258,7 +265,9 @@ public class PlayerController : MonoBehaviour
                 particleSystems[3].Play();
             }
         }
-        
+
+        audioSource.clip = splashFX;
+        audioSource.Play();
     }
 
     //Player index: {1, 2, 3, 4}

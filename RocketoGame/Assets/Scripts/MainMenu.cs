@@ -36,16 +36,16 @@ public class MainMenu : MonoBehaviour
                 switch (subState)
                 {
                     case currentSubMenu.play:
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown(KeyCode.Space))
                             Application.LoadLevel("ConceptScene");
-                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        if (Input.GetButtonDown("ControllerButtonDown") || Input.GetKeyDown(KeyCode.DownArrow))
                         {
                             subState = currentSubMenu.credits;
                             mat.mainTexture = texture_credits;
                             audioSource.Stop();
                             audioSource.PlayOneShot(clip);
                         }
-                        else if (Input.GetKeyDown(KeyCode.UpArrow))
+                        else if (Input.GetButtonDown("ControllerButtonUp") || Input.GetKeyDown(KeyCode.UpArrow))
                         {
                             subState = currentSubMenu.quit;
                             mat.mainTexture = texture_exit;
@@ -54,16 +54,16 @@ public class MainMenu : MonoBehaviour
                         }
                         break;
                     case currentSubMenu.credits:
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        if (Input.GetButtonDown("ControllerButtonB") || Input.GetKeyDown(KeyCode.Space))
                             state = currentMenu.goToCredits;
-                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        if (Input.GetButtonDown("ControllerButtonDown") || Input.GetKeyDown(KeyCode.DownArrow))
                         {
                             subState = currentSubMenu.quit;
                             mat.mainTexture = texture_exit;
                             audioSource.Stop();
                             audioSource.PlayOneShot(clip);
                         }
-                        else if(Input.GetKeyDown(KeyCode.UpArrow))
+                        else if(Input.GetButtonDown("ControllerButtonUp") || Input.GetKeyDown(KeyCode.UpArrow))
                         {
                             subState = currentSubMenu.play;
                             mat.mainTexture = texture_play;
@@ -72,16 +72,16 @@ public class MainMenu : MonoBehaviour
                         }
                         break;
                     case currentSubMenu.quit:
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown(KeyCode.Space))
                             Application.Quit();
-                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        if (Input.GetButtonDown("ControllerButtonDown") || Input.GetKeyDown(KeyCode.DownArrow))
                         {
                             subState = currentSubMenu.play;
                             mat.mainTexture = texture_play;
                             audioSource.Stop();
                             audioSource.PlayOneShot(clip);
                         }
-                        else if(Input.GetKeyDown(KeyCode.UpArrow))
+                        else if(Input.GetButtonDown("ControllerButtonUp") || Input.GetKeyDown(KeyCode.UpArrow))
                         {
                             subState = currentSubMenu.credits;
                             mat.mainTexture = texture_credits;
