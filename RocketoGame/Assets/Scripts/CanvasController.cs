@@ -53,7 +53,12 @@ public class CanvasController : MonoBehaviour
         cd_2.enabled = false;
         cd_1.enabled = false;
         cd_out.enabled = false;
-        go.enabled = false;
+		one = false;
+     	two = false;
+		three = false;
+     four = false;  
+
+		go.enabled = false;
         info.enabled = false;
         restart.enabled = false;
         exit.enabled = false;
@@ -146,6 +151,17 @@ public class CanvasController : MonoBehaviour
                 OnExitPressed();
             }
         }
+
+		if(camera_controller.timer == 0.00f){
+			cd_3.enabled = false;
+			cd_2.enabled = false;
+			cd_1.enabled = false;
+			cd_out.enabled = false;
+			one = false;
+			two = false;
+			three = false;
+			four = false;  
+		}
 
 
         if(camera_controller.timer > 4.05f){

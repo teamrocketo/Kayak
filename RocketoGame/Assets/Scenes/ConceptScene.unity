@@ -1691,8 +1691,8 @@ MonoBehaviour:
   player1: {fileID: 1590100789}
   player2: {fileID: 1321642604}
   smooth_speed: 0.125
-  max_distance_between_players: 70
-  offset: {x: 0, y: 20, z: -15}
+  max_distance_between_players: 120
+  offset: {x: 0, y: 30, z: -28}
   current_winner: {fileID: 0}
   current_loser: {fileID: 0}
   distance_between_players: 0
@@ -3472,6 +3472,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177599153548791490, guid: 236b748d11a4e8f47811bbfcec1474ba,
+        type: 3}
+      propertyPath: rowForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177599153548791492, guid: 236b748d11a4e8f47811bbfcec1474ba,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177599153548791492, guid: 236b748d11a4e8f47811bbfcec1474ba,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236b748d11a4e8f47811bbfcec1474ba, type: 3}
@@ -5744,6 +5759,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051673795708407824, guid: a6578971a8c3dfc4198541dca42dbae0,
+        type: 3}
+      propertyPath: rowForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051673795708407827, guid: a6578971a8c3dfc4198541dca42dbae0,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051673795708407827, guid: a6578971a8c3dfc4198541dca42dbae0,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6578971a8c3dfc4198541dca42dbae0, type: 3}
