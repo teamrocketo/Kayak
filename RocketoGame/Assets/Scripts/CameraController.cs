@@ -63,12 +63,12 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            /*timer += Time.deltaTime;
+            timer += Time.deltaTime;
             if (timer >= time_to_lose)
             {
                 // current_loser loses lul
                 game_end = true;
-            }*/
+            }
         }
         
         if(!game_end){
