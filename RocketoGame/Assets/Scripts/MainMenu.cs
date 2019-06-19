@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public Texture texture_exit;
     AudioSource audioSource;
     public AudioClip clip;
+    public AudioClip clipPress;
     public Material mat;
 
     enum currentMenu { menu, goToCredits, credits, goToMenu };
@@ -37,7 +38,11 @@ public class MainMenu : MonoBehaviour
                 {
                     case currentSubMenu.play:
                         if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown(KeyCode.Space))
+                        {
+                            // start game
+                            audioSource.PlayOneShot(clipPress);
                             Application.LoadLevel("ConceptScene");
+                        }
                         if (Input.GetButtonDown("ControllerButtonDown") || Input.GetKeyDown(KeyCode.DownArrow))
                         {
                             subState = currentSubMenu.credits;
@@ -55,7 +60,11 @@ public class MainMenu : MonoBehaviour
                         break;
                     case currentSubMenu.credits:
                         if (Input.GetButtonDown("ControllerButtonB") || Input.GetKeyDown(KeyCode.Space))
+                        {
+                            // credits
+                            audioSource.PlayOneShot(clipPress);
                             state = currentMenu.goToCredits;
+                        }
                         if (Input.GetButtonDown("ControllerButtonDown") || Input.GetKeyDown(KeyCode.DownArrow))
                         {
                             subState = currentSubMenu.quit;
@@ -73,7 +82,11 @@ public class MainMenu : MonoBehaviour
                         break;
                     case currentSubMenu.quit:
                         if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown(KeyCode.Space))
+                        {
+                            // quit
+                            audioSource.PlayOneShot(clipPress);
                             Application.Quit();
+                        }
                         if (Input.GetButtonDown("ControllerButtonDown") || Input.GetKeyDown(KeyCode.DownArrow))
                         {
                             subState = currentSubMenu.play;
@@ -109,8 +122,11 @@ public class MainMenu : MonoBehaviour
                 break;
             case currentMenu.credits:
                 if (Input.GetKeyDown(KeyCode.Space))
+                {
                     state = currentMenu.goToMenu;
-                break;
+                    audioSource.PlayOneShot(clipPress);
+                }
+                    break;
             case currentMenu.goToMenu:
                 dolly.m_PathPosition -= Time.deltaTime * _ConstantForce;
                 if (dolly.m_PathPosition <= 2)
