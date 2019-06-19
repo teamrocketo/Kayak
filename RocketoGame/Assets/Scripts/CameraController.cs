@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
             if (timer >= time_to_lose)
             {
                 // current_loser loses lul
-                //game_end = false;
+                game_end = true;
             }
         }
         
