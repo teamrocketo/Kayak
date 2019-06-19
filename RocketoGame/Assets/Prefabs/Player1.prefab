@@ -24105,6 +24105,7 @@ MonoBehaviour:
   rowControllerFront: {fileID: 9177599154166862792}
   rowControllerBack: {fileID: 9177599153066384317}
   splashFX: {fileID: 8300000, guid: db2531366613aca488ea565833699e62, type: 3}
+  hitFX: {fileID: 8300000, guid: b9161933eaf141741afc0eacec995a2a, type: 3}
 --- !u!54 &9177599153548791492
 Rigidbody:
   m_ObjectHideFlags: 0

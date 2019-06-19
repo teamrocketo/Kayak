@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public RowController rowControllerBack;
 
     public AudioClip splashFX;
+    public AudioClip hitFX;
 
     private AudioSource audioSource;
 
@@ -309,5 +310,11 @@ public class PlayerController : MonoBehaviour
         }
 
         StartCoroutine(OnRowAnimFinished(playerIndex, false));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        audioSource.clip = hitFX;
+        audioSource.Play();
     }
 }
