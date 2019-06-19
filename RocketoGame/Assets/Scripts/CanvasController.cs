@@ -152,7 +152,7 @@ public class CanvasController : MonoBehaviour
             }
         }
 
-		if(camera_controller.timer == 0.00f){
+		if(camera_controller.timer == 0.00f && one){
 			cd_3.enabled = false;
 			cd_2.enabled = false;
 			cd_1.enabled = false;
