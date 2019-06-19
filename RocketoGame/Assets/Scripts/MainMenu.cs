@@ -12,7 +12,8 @@ public class MainMenu : MonoBehaviour
     public Texture texture_play;
     public Texture texture_credits;
     public Texture texture_exit;
-
+    AudioSource audioSource;
+    public AudioClip clip;
     public Material mat;
 
     enum currentMenu { menu, goToCredits, credits, goToMenu };
@@ -22,6 +23,8 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         dolly = virtualCameraPrefab.GetCinemachineComponent<CinemachineTrackedDolly>();
+        audioSource = GetComponent<AudioSource>();
+        mat.mainTexture = texture_play;
     }
     
     void Update()
@@ -39,12 +42,15 @@ public class MainMenu : MonoBehaviour
                         {
                             subState = currentSubMenu.credits;
                             mat.mainTexture = texture_credits;
-                            
+                            audioSource.Stop();
+                            audioSource.PlayOneShot(clip);
                         }
                         else if (Input.GetKeyDown(KeyCode.UpArrow))
                         {
                             subState = currentSubMenu.quit;
                             mat.mainTexture = texture_exit;
+                            audioSource.Stop();
+                            audioSource.PlayOneShot(clip);
                         }
                         break;
                     case currentSubMenu.credits:
@@ -54,11 +60,15 @@ public class MainMenu : MonoBehaviour
                         {
                             subState = currentSubMenu.quit;
                             mat.mainTexture = texture_exit;
+                            audioSource.Stop();
+                            audioSource.PlayOneShot(clip);
                         }
                         else if(Input.GetKeyDown(KeyCode.UpArrow))
                         {
                             subState = currentSubMenu.play;
                             mat.mainTexture = texture_play;
+                            audioSource.Stop();
+                            audioSource.PlayOneShot(clip);
                         }
                         break;
                     case currentSubMenu.quit:
@@ -68,11 +78,15 @@ public class MainMenu : MonoBehaviour
                         {
                             subState = currentSubMenu.play;
                             mat.mainTexture = texture_play;
+                            audioSource.Stop();
+                            audioSource.PlayOneShot(clip);
                         }
                         else if(Input.GetKeyDown(KeyCode.UpArrow))
                         {
                             subState = currentSubMenu.credits;
                             mat.mainTexture = texture_credits;
+                            audioSource.Stop();
+                            audioSource.PlayOneShot(clip);
                         }
                         break;
                 }
