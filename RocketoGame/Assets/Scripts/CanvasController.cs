@@ -123,7 +123,6 @@ public class CanvasController : MonoBehaviour
             tuto2.active = true;
         }
 
-
         if(camera_controller.game_end){
             timer += Time.deltaTime;
             if(timer > 2.0f && !info.enabled){
@@ -142,11 +141,11 @@ public class CanvasController : MonoBehaviour
                 restart.GetComponent<Animation>().Play();
                 exit.GetComponent<Animation>().Play();
             }
-			if (Input.GetButtonDown("ControllerButtonA") || Input.GetButtonDown("space"))
+			if (Input.GetButtonDown("ControllerButtonA") || Input.GetKeyDown("up"))
             {
                 OnRestartPressed();
             }
-			if (Input.GetButtonDown("ControllerButtonB")|| Input.GetButtonDown("space"))
+			if (Input.GetButtonDown("ControllerButtonB")|| Input.GetKeyDown("down"))
             {
                 OnExitPressed();
             }
