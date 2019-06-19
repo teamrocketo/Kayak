@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3622,6 +3622,7 @@ GameObject:
   - component: {fileID: 805923969}
   - component: {fileID: 805923968}
   - component: {fileID: 805923970}
+  - component: {fileID: 805923971}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3752,6 +3753,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31.073833, y: 12.096798, z: 1.5227623}
   m_Center: {x: 0.74531174, y: 5.548399, z: -0.26138115}
+--- !u!114 &805923971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805923967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6dc605143413ac4a8ca586d853493fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BSO: {fileID: 8300000, guid: 223c97624f92ac64f84b57f26ede6ac3, type: 3}
+  victoryMusic: {fileID: 8300000, guid: f92c10f7c8f49984fa42ca40728deade, type: 3}
+  cameraControl: {fileID: 534669906}
 --- !u!1 &818405620
 GameObject:
   m_ObjectHideFlags: 0
