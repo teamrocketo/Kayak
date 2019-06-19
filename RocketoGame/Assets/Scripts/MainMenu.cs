@@ -28,6 +28,9 @@ public class MainMenu : MonoBehaviour
 
     bool pressed = false;
 
+    bool downPlay = false;
+    bool upPlay = false;
+
     enum currentMenu { menu, goToCredits, credits, goToMenu };
     currentMenu state = currentMenu.menu;
     enum currentSubMenu { play, credits, quit };
@@ -73,6 +76,14 @@ public class MainMenu : MonoBehaviour
                 switch (subState)
                 {
                     case currentSubMenu.play:
+                        if (gpState.DPad.Down == ButtonState.Released)
+                        {
+                            downPlay = false;
+                        }
+                        if (gpState.DPad.Up == ButtonState.Released)
+                        {
+                            upPlay = false;
+                        }
                         if (gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Space))
                         {
                             // TODO: GUILLERMO BOOL;
@@ -80,15 +91,17 @@ public class MainMenu : MonoBehaviour
                             audioSource.PlayOneShot(clipPress);
                             Application.LoadLevel("ConceptScene");
                         }
-                        if (gpState.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.DownArrow))
+                        if ((!downPlay && gpState.DPad.Down == ButtonState.Pressed) || Input.GetKeyDown(KeyCode.DownArrow))
                         {
+                            downPlay = true;
                             subState = currentSubMenu.credits;
                             mat.mainTexture = texture_credits;
                             audioSource.Stop();
                             audioSource.PlayOneShot(clip);
                         }
-                        else if (gpState.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(KeyCode.UpArrow))
+                        else if (( !upPlay && gpState.DPad.Up == ButtonState.Pressed) || Input.GetKeyDown(KeyCode.UpArrow))
                         {
+                            upPlay = true;
                             subState = currentSubMenu.quit;
                             mat.mainTexture = texture_exit;
                             audioSource.Stop();
@@ -96,21 +109,31 @@ public class MainMenu : MonoBehaviour
                         }
                         break;
                     case currentSubMenu.credits:
+                        if (gpState.DPad.Down == ButtonState.Released)
+                        {
+                            downPlay = false;
+                        }
+                        if (gpState.DPad.Up == ButtonState.Released)
+                        {
+                            upPlay = false;
+                        }
                         if (gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Space))
                         {
                             // credits
                             audioSource.PlayOneShot(clipPress);
                             state = currentMenu.goToCredits;
                         }
-                        if (gpState.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.DownArrow))
+                        if ((!downPlay && gpState.DPad.Down == ButtonState.Pressed) || Input.GetKeyDown(KeyCode.DownArrow))
                         {
+                            downPlay = true;
                             subState = currentSubMenu.quit;
                             mat.mainTexture = texture_exit;
                             audioSource.Stop();
                             audioSource.PlayOneShot(clip);
                         }
-                        else if(gpState.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(KeyCode.UpArrow))
+                        else if((!upPlay && gpState.DPad.Up == ButtonState.Pressed) || Input.GetKeyDown(KeyCode.UpArrow))
                         {
+                            upPlay = true;
                             subState = currentSubMenu.play;
                             mat.mainTexture = texture_play;
                             audioSource.Stop();
@@ -118,21 +141,31 @@ public class MainMenu : MonoBehaviour
                         }
                         break;
                     case currentSubMenu.quit:
+                        if (gpState.DPad.Down == ButtonState.Released)
+                        {
+                            downPlay = false;
+                        }
+                        if (gpState.DPad.Up == ButtonState.Released)
+                        {
+                            upPlay = false;
+                        }
                         if (gpState.Buttons.A == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Space))
                         {
                             // quit
                             audioSource.PlayOneShot(clipPress);
                             Application.Quit();
                         }
-                        if (gpState.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.DownArrow))
+                        if ((!downPlay && gpState.DPad.Down == ButtonState.Pressed) || Input.GetKeyDown(KeyCode.DownArrow))
                         {
+                            downPlay = true;
                             subState = currentSubMenu.play;
                             mat.mainTexture = texture_play;
                             audioSource.Stop();
                             audioSource.PlayOneShot(clip);
                         }
-                        else if(gpState.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(KeyCode.UpArrow))
+                        else if((!upPlay && gpState.DPad.Up == ButtonState.Pressed) || Input.GetKeyDown(KeyCode.UpArrow))
                         {
+                            upPlay = true;
                             subState = currentSubMenu.credits;
                             mat.mainTexture = texture_credits;
                             audioSource.Stop();
