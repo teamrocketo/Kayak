@@ -738,7 +738,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373354495}
-  m_LocalRotation: {x: 0.07751496, y: -0.51071244, z: 0.046302438, w: 0.85499734}
+  m_LocalRotation: {x: 0.07751566, y: -0.51071393, z: 0.046303052, w: 0.8549963}
   m_LocalPosition: {x: 93.62, y: 139.2738, z: 237.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -806,6 +806,7 @@ MonoBehaviour:
   texture_credits: {fileID: 2800000, guid: 94e4d17b3c04eaa4c8ee7f0568981da1, type: 3}
   texture_exit: {fileID: 2800000, guid: 360a183f669fdff469bd26eacbc5697b, type: 3}
   clip: {fileID: 8300000, guid: 79ff13113e84bed48a8440ddaa038a95, type: 3}
+  clipPress: {fileID: 8300000, guid: 8c727515d628a1d4eb0977e977369822, type: 3}
   mat: {fileID: 2100000, guid: 4e28307a425eea4429be5a8c949582e0, type: 2}
 --- !u!82 &1373354503
 AudioSource:
@@ -1116,7 +1117,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675995418}
-  m_LocalRotation: {x: 0.07751496, y: -0.51071244, z: 0.046302438, w: 0.85499734}
+  m_LocalRotation: {x: 0.07751566, y: -0.51071393, z: 0.046303052, w: 0.8549963}
   m_LocalPosition: {x: 93.62, y: 139.2738, z: 237.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
