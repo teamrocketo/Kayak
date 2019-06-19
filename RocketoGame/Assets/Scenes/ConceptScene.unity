@@ -5433,6 +5433,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 79134070f80204e43b799a9581c9eb35, type: 2}
+    - target: {fileID: 9500000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5477,6 +5481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e512d8157b1aa874599700a7f1475bdc, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
@@ -26174,10 +26182,11 @@ Animation:
   m_GameObject: {fileID: 1185896344}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: 53e5ec4e522640b4d846ea2cf0ab34c0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 53e5ec4e522640b4d846ea2cf0ab34c0, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &1364945192 stripped
@@ -26195,9 +26204,9 @@ Animation:
   m_GameObject: {fileID: 1364945192}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
+  m_Animation: {fileID: 7400000, guid: 53e5ec4e522640b4d846ea2cf0ab34c0, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
+  - {fileID: 7400000, guid: 53e5ec4e522640b4d846ea2cf0ab34c0, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -31489,6 +31498,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e512d8157b1aa874599700a7f1475bdc, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4493fa39a1fb83e41bad71ee350c2ae5, type: 3}
