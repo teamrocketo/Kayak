@@ -1,5 +1,5 @@
 # KAYAK
-A game made for the 2nd edition of the Gran CITM Game Jam. The theme was _sea_ and the subtheme we picked was _vehicles_. This game has been entirely done by ourselves (including the art) except for the music and sound fx. 
+A game made for the 2nd edition of the Gran CITM Game Jam in 31h. The theme was _sea_ and the subtheme we picked was _vehicles_. This game has been entirely done by ourselves (including the art) except for the music and sound fx. 
 
 * [Github repository](https://github.com/teamrocketo/RocketoGame)  
 
