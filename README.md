@@ -58,3 +58,8 @@ _Víctor Masó:_
 * **Game Engine:** Unity 2018
 * **Art sofware:** Autodesk Maya and Adobe Photoshop CC 
 * **Other tools:** [XInputDotNet](https://github.com/speps/XInputDotNet) and [Cinemachine](https://assetstore.unity.com/packages/essentials/cinemachine-79898)
+
+## Attributions
+
+* _Main menu music_: [Staff Roll - The Legend of Zelda: Ocarina of Time](https://www.youtube.com/watch?v=NPjLgDF1hUg&feature=youtu.be)
+* _In game music_: [Jak & Daxter Soundtrack - Track 21 - Sentinel Beach](https://www.youtube.com/watch?v=FOou8O2qMa0&feature=youtu.be)
