@@ -13,7 +13,7 @@ You can win the game in two different ways:
 
 ## Installation instructions
 
-Plug-in 4 game XBOX controllers and execute the 'Kayak.exe'. 
+Plug-in 4 game XBOX controllers and execute 'Kayak.exe' and choose the graphics configuration that best suits you. 
 
 ## Controls
 
