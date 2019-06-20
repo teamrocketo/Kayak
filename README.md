@@ -9,7 +9,7 @@ Kayak is a 2 vs 2 local co-op racing game. Each team (formed by 2 players) is in
 
 You can win the game in two different ways:
 * Getting to the goal before the other team does
-* If one team is so behind that it is no longer seen in the screen a 3 second counter will start. If that team doesn't manage to get visible in the screen before the counter ends, the other team automatically wins the game
+* If one team is so behind that it is no longer seen in the screen a 3 second countdown timer will start. If that team doesn't manage to get visible in the screen before the counter ends, the other team automatically wins the game
 
 ## Installation instructions
 
@@ -63,3 +63,9 @@ _Víctor Masó:_
 
 * _Main menu music_: [Staff Roll - The Legend of Zelda: Ocarina of Time](https://www.youtube.com/watch?v=NPjLgDF1hUg&feature=youtu.be)
 * _In game music_: [Jak & Daxter Soundtrack - Track 21 - Sentinel Beach](https://www.youtube.com/watch?v=FOou8O2qMa0&feature=youtu.be)
+* **Hit SFX:**
+* **Paddle SFX:**
+* **Hover button SFX:**
+* **Pressed button SFX:**
+* **Countdown timer SFX:**
+* **Victory SFX:**
