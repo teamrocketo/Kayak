@@ -68,4 +68,4 @@ _Víctor Masó:_
 * **Hover button SFX:** [SFX](https://www.soundsnap.com/node/70555) from [Soundsnap](https://www.soundsnap.com/)
 * **Pressed button SFX:**
 * **Countdown timer SFX:**
-* **Victory SFX:**
+* **Victory SFX:** [SFX](https://www.soundsnap.com/search/audio/trumpets+fanfar+2/score) from [Soundsnap](https://www.soundsnap.com/)
