@@ -72,5 +72,5 @@ _Audio_
 * **Hit SFX:** [SFX](https://www.soundsnap.com/search/audio/TrafficCone36/score) from [Soundsnap](https://www.soundsnap.com/)
 * **Paddle splash SFX:** [SFX](https://www.soundsnap.com/water_small_splash_01) from [Soundsnap](https://www.soundsnap.com/)
 * **Hover button SFX:** [SFX](https://www.soundsnap.com/node/70555) from [Soundsnap](https://www.soundsnap.com/)
-* **Countdown timer SFX:**
+* **Countdown timer SFX:** [SFX](https://www.soundsnap.com/search/audio/Simple+Google+Soundalike+Alert+26/score) from [Soundsnap](https://www.soundsnap.com/)
 * **Victory SFX:** [SFX](https://www.soundsnap.com/search/audio/trumpets+fanfar+2/score) from [Soundsnap](https://www.soundsnap.com/)
