@@ -66,6 +66,5 @@ _Víctor Masó:_
 * **Hit SFX:** [SFX](https://www.soundsnap.com/search/audio/TrafficCone36/score) from [Soundsnap](https://www.soundsnap.com/)
 * **Paddle splash SFX:** [SFX](https://www.soundsnap.com/water_small_splash_01) from [Soundsnap](https://www.soundsnap.com/)
 * **Hover button SFX:** [SFX](https://www.soundsnap.com/node/70555) from [Soundsnap](https://www.soundsnap.com/)
-* **Pressed button SFX:**
 * **Countdown timer SFX:**
 * **Victory SFX:** [SFX](https://www.soundsnap.com/search/audio/trumpets+fanfar+2/score) from [Soundsnap](https://www.soundsnap.com/)
