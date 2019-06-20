@@ -61,6 +61,12 @@ _Víctor Masó:_
 
 ## Attributions
 
+_Graphics_
+
+The water shader along with some of its components it's based in a tutorial by [Erik Roystan Ross](https://roystan.net/)
+
+_Audio_
+
 * **Main menu music:** [Staff Roll - The Legend of Zelda: Ocarina of Time](https://www.youtube.com/watch?v=NPjLgDF1hUg&feature=youtu.be)
 * **In game music:** [Jak & Daxter Soundtrack - Track 21 - Sentinel Beach](https://www.youtube.com/watch?v=FOou8O2qMa0&feature=youtu.be)
 * **Hit SFX:** [SFX](https://www.soundsnap.com/search/audio/TrafficCone36/score) from [Soundsnap](https://www.soundsnap.com/)
