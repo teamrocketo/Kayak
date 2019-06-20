@@ -26,11 +26,6 @@ Plug-in 4 game XBOX controllers and execute the 'KayakSimulator.exe'.
 
 This game has been made by 5 students of CITM (UPC): 
 
-Víctor Masó:
-
-* [Github account](https://github.com/nintervik)
-* [Twitter](https://twitter.com/nintervik)
-
 Aleix Gabarró:
 
 * [Github account](https://github.com/aleixgab)
@@ -50,6 +45,11 @@ Guillem Costa:
 
 * [Github account](https://github.com/DatBeQuiet)
 * [Twitter](https://twitter.com/DatBeQuiet)
+
+Víctor Masó:
+
+* [Github account](https://github.com/nintervik)
+* [Twitter](https://twitter.com/nintervik)
 
 ## Tools used
 
