@@ -64,7 +64,7 @@ _Víctor Masó:_
 * **Main menu music:** [Staff Roll - The Legend of Zelda: Ocarina of Time](https://www.youtube.com/watch?v=NPjLgDF1hUg&feature=youtu.be)
 * **In game music:** [Jak & Daxter Soundtrack - Track 21 - Sentinel Beach](https://www.youtube.com/watch?v=FOou8O2qMa0&feature=youtu.be)
 * **Hit SFX:**
-* **Paddle SFX:**
+* **Paddle splash SFX:**
 * **Hover button SFX:**
 * **Pressed button SFX:**
 * **Countdown timer SFX:**
