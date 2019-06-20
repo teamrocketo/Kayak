@@ -26,27 +26,27 @@ Plug-in 4 game XBOX controllers and execute 'Kayak.exe' and choose the graphics 
 
 This game has been made by 5 students of CITM (UPC): 
 
-_Aleix Gabarró:_
+_Aleix Gabarró (Code & Design):_
 
 * [Github account](https://github.com/aleixgab)
 * [Twitter](https://twitter.com/aleix_gab)
 
-_Guillermo García:_
+_Guillermo García (Code & Design):_
 
 * [Github account](https://github.com/Wilhelman)
 * [Twitter](https://twitter.com/realWilhelman)
 
-_Jonathan Molina-Prados:_
+_Jonathan Molina-Prados (Code & Design):_
 
 * [Github account](https://github.com/Jony635)
 * [Twitter](https://twitter.com/Jony635Dev)
 
-_Guillem Costa:_
+_Guillem Costa (Code & Design):_
 
 * [Github account](https://github.com/DatBeQuiet)
 * [Twitter](https://twitter.com/DatBeQuiet)
 
-_Víctor Masó:_
+_Víctor Masó (Art & Design):_
 
 * [Github account](https://github.com/nintervik)
 * [Twitter](https://twitter.com/nintervik)
