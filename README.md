@@ -11,6 +11,16 @@ You can win the game in two different ways:
 * Getting to the goal before the other team does
 * If one team is so behind that it is no longer seen in the screen a 3 second countdown timer will start. If that team doesn't manage to get visible in the screen before the counter ends, the other team automatically wins the game
 
+![Tutorial1](https://user-images.githubusercontent.com/11388662/64607249-6dc41e00-d3c8-11e9-879f-6dfec2603edc.png) 
+![Tutorial2](https://user-images.githubusercontent.com/11388662/64607295-8a605600-d3c8-11e9-8d95-b8659a2d2d43.png) 
+![Map1](https://user-images.githubusercontent.com/11388662/64607337-9cda8f80-d3c8-11e9-8178-9f6cd2ab4777.png)
+![Map2](https://user-images.githubusercontent.com/11388662/64607463-e0cd9480-d3c8-11e9-9b36-e9723cf4dc90.png)
+![Map3](https://user-images.githubusercontent.com/11388662/64607504-ee831a00-d3c8-11e9-8fe8-99740f20e7c4.png)
+![Map4](https://user-images.githubusercontent.com/11388662/64607545-ffcc2680-d3c8-11e9-9559-0684115899a8.png)
+![Map4_End](https://user-images.githubusercontent.com/11388662/64607565-0a86bb80-d3c9-11e9-9f25-434c594703e3.png)
+![Coundown](https://user-images.githubusercontent.com/11388662/64607413-c2679900-d3c8-11e9-82ba-8e6de9741f6e.png)
+![Victory](https://user-images.githubusercontent.com/11388662/64607438-d01d1e80-d3c8-11e9-8dff-973865d6f171.png)
+
 ## Installation instructions
 
 Plug-in 4 game XBOX controllers, execute 'Kayak.exe', choose the graphics configuration that best suits you and enjoy playing!
