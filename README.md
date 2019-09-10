@@ -9,9 +9,9 @@ A game made for the 2nd edition of the Gran CITM Game Jam in 31h. The theme was 
 
 Kayak is a 2 vs 2 local co-op racing game. Each team (formed by 2 players) is in control of one kayak. Each player has a double-bladed paddle that can use to paddle on each side of the vehicle. As in real life, paddling right will propel the kayak in the opposite direction, and the same for the left side. With this in mind, each pair will have to coordinate properly to advance through a water circuit in the sea and sort some rocks in their way to the goal. 
 
-You can win the game in two different ways:
-  1. Getting to the goal before the other team does.<br><br>
-  2. If one team is so behind that it is no longer seen in the screen a 3 second countdown timer will start. If that team doesn't manage to get visible in the screen before the counter ends, the other team automatically wins the game.<br><br>
+You can win the game in two different ways:<br>
+  **1.** Getting to the goal before the other team does.<br><br>
+  **2.** If one team is so behind that it is no longer seen in the screen a 3 second countdown timer will start. If that team doesn't manage to get visible in the screen before the counter ends, the other team automatically wins the game.<br><br>
 
 ![Tutorial1](https://user-images.githubusercontent.com/11388662/64607249-6dc41e00-d3c8-11e9-879f-6dfec2603edc.png) 
 ![Tutorial2](https://user-images.githubusercontent.com/11388662/64607295-8a605600-d3c8-11e9-8d95-b8659a2d2d43.png) 
